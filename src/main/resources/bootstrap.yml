@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: FilmeConsulta
+  profiles:
+    active:
+      dev
+  cloud:
+    config:
+      uri: http://ec2-54-208-198-150.compute-1.amazonaws.com:8000
