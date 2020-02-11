@@ -4,26 +4,6 @@ spring:
   profiles:
     active:
       dev
-  server:
-     port: 8080
-  jpa:
-     database: "MYSQL"
-     show-sql: "false"
-     properties:
-             hibernate:
-                       dialect: "org.hibernate.dialect.MySQL8Dialect"
-  database:
-     driverClassName: "com.mysql.jdbc.Driver"
-  datasource:
-     platform: "MYSQL"
-     url: "jdbc:mysql://ec2-3-85-165-145.compute-1.amazonaws.com:3306/roadrunner_consulta"
-     username: "coyote"
-     password: "Pas$w0rd"
-     testWhileIdle: "true"
-     validationQuery: "SELECT 1"
-  eureka:
-     client:
-         registerWithEureka: true
-         fetchRegistry: true
-         serviceUrl:
-              defaultZone: http://172.31.86.136:8761/eureka
+  cloud:
+    config:
+      uri: http://ec2-54-208-198-150.compute-1.amazonaws.com:8000
