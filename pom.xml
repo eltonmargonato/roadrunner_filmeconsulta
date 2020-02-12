@@ -106,7 +106,7 @@
                             <limit>
                                 <counter>COMPLEXITY</counter>
                                 <value>COVEREDRATIO</value>
-                                <minimum>0.60</minimum>
+                                <minimum>0.01</minimum>
                             </limit>
                         </limits>
                </rule>
@@ -125,6 +125,14 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
+		
+                <repository>
+                        <id>oss-sonatype</id>
+                        <name>oss-sonatype</name>
+                        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </repository>	
+		
+		
 		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
