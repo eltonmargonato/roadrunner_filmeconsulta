@@ -29,7 +29,7 @@ public class FilmeConsultaApplicationTests {
 	
 	@Test
         public void getFilmesPorGenero() throws Exception {
-             mvc.perform( MockMvcRequestBuilders
+             mockMvc.perform( MockMvcRequestBuilders
                 .get("/filme/busca/genero/1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
