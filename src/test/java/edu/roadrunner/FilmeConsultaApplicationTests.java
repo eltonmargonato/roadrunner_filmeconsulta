@@ -12,13 +12,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.http.MediaType;
 
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+
+/*
  import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
  import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
  import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+ */
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
-@WebMvcTest(FilmeController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+//@WebMvcTest(FilmeController.class)
 //@ContextConfiguration(classes=FilmeConsultaApplication.class)
 public class FilmeConsultaApplicationTests {
 	
