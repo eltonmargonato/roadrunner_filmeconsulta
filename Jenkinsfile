@@ -16,13 +16,13 @@ pipeline {
 
          stage ('Fazer deploy do Jar no Artifactory') {
               steps {
-                       rtUpload (serverId: "aws_artifactory", 
+                       rtUpload (serverId: "AWS_Artifactory_ECMO", 
                                  spec: """{ "files": [ {
                                                        "pattern": "target/(*).jar",
                                                        "target": "libs-release/target/{1}.jar"
                                                        }  ] }"""
                                 )
-                       rtPublishBuildInfo(serverId: 'aws_artifactory')
+                       rtPublishBuildInfo(serverId: 'AWS_Artifactory_ECMO')
                     }
            }
    }
