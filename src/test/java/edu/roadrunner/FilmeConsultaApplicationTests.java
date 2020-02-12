@@ -18,8 +18,8 @@ import org.springframework.http.MediaType;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@WebMvcTest(FilmeController.class)
-@ContextConfiguration(classes=FilmeConsultaApplication.class)
+//@WebMvcTest(FilmeController.class)
+//@ContextConfiguration(classes=FilmeConsultaApplication.class)
 public class FilmeConsultaApplicationTests {
 	
 	@Autowired
