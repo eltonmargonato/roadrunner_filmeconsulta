@@ -8,9 +8,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.ContextConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.http.MediaType;
+
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
@@ -18,6 +18,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
  import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
  import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
  import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+ import org.springframework.http.MediaType;
+ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
  */
 
 @RunWith(SpringRunner.class)
@@ -36,8 +38,7 @@ public class FilmeConsultaApplicationTests {
 	
 	@Test
         public void getFilmesPorGenero() throws Exception {
-             mockMvc.perform(get("/filme/busca/genero/1").accept(MediaType.APPLICATION_JSON))
-		                      .andExpect(status().isOk());
+	     this.mockMvc.perform(get("/filme/busca/genero/1")).andDo(print()).andExpect(status().isOk());	
         }
 	
 }
