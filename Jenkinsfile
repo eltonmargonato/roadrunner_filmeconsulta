@@ -14,6 +14,16 @@ pipeline {
                          junit 'target/**/*.xml'
                     }
            }
+      
+         stage ('Relatório de cobertura de código') {
+              steps {
+                        jacoco( 
+                            execPattern: 'target/*.exec',
+                            classPattern: 'target/classes',
+                            sourcePattern: 'src/main/java',
+                            exclusionPattern: 'src/test*')
+                    }
+           }
 
          stage ('Fazer deploy do Jar no Artifactory') {
               steps {
