@@ -19,7 +19,7 @@ pipeline {
                        rtUpload (serverId: "aws_artifactory", 
                                  spec: """{ "files": [ {
                                                        "pattern": "target/(*).jar",
-                                                       "target": "generic-local/{1}.jar"
+                                                       "target": "libs-release/target/{1}.jar"
                                                        }  ] }"""
                                 )
                        rtPublishBuildInfo(serverId: 'aws_artifactory')
