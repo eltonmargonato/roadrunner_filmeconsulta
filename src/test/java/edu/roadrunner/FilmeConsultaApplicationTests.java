@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.http.MediaType;
 
@@ -30,7 +31,8 @@ public class FilmeConsultaApplicationTests {
 	@Test
         public void getFilmesPorGenero() throws Exception {
              mockMvc.perform(get("/filme/busca/genero/1").accept(MediaType.APPLICATION_JSON))
-                                      .andDo(print()).andExpect(status().isOk())
+                                      .andDo(print())
+		                      .andExpect(status().isOk())
                                       .andExpect(MockMvcResultMatchers.jsonPath("$.idFilme").exists());
         }
 }
