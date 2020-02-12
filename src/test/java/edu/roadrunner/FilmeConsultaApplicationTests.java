@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureMockMvc
+@WebMvcTest(FilmeController.class)
 public class FilmeConsultaApplicationTests {
 	
 	@Autowired
@@ -18,7 +18,7 @@ public class FilmeConsultaApplicationTests {
 	}
 	
 	@Test
-        public void getFilmePorGenero() throws Exception {
+        public void getFilmesPorGenero() throws Exception {
              mvc.perform( MockMvcRequestBuilders
                 .get("/filme/busca/genero/1")
                 .accept(MediaType.APPLICATION_JSON))
