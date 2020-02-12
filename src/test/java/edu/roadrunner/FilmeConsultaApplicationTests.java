@@ -17,9 +17,9 @@ import org.springframework.http.MediaType;
  import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-//@WebMvcTest(FilmeController.class)
-//@ContextConfiguration(classes=FilmeConsultaApplication.class)
+//@SpringBootTest
+@WebMvcTest(FilmeController.class)
+@ContextConfiguration(classes=FilmeConsultaApplication.class)
 public class FilmeConsultaApplicationTests {
 	
 	@Autowired
