@@ -10,7 +10,7 @@ pipeline {
 
          stage ('Build do projeto') {
               steps {
-                         sh 'mvn clean verify'
+                         sh 'mvn clean package'
                     }
            }
 
