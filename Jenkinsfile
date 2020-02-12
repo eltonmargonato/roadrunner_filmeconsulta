@@ -16,7 +16,7 @@ pipeline {
 
          stage ('Fazer deploy do Jar no Artifactory') {
               steps {
-                       rtUpload (serverId: "aws_artifactory", specPath: '**/*.jar')
+                       rtUpload (serverId: "aws_artifactory", pattern: '**/*.jar')
                        rtPublishBuildInfo(serverId: 'aws_artifactory')
                     }
            }
