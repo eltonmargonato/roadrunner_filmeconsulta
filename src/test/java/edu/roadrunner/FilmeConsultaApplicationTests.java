@@ -29,11 +29,8 @@ public class FilmeConsultaApplicationTests {
 	
 	@Test
         public void getFilmesPorGenero() throws Exception {
-             mockMvc.perform( MockMvcRequestBuilders
-                .get("/filme/busca/genero/1")
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.idFilme").exists());
+             mockMvc.perform(get("/filme/busca/genero/1").accept(MediaType.APPLICATION_JSON))
+                                      .andDo(print()).andExpect(status().isOk())
+                                      .andExpect(MockMvcResultMatchers.jsonPath("$.idFilme").exists());
         }
 }
