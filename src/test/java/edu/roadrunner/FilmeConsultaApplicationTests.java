@@ -15,19 +15,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/*
- import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
- import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
- import org.springframework.http.MediaType;
- import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
- */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-//@WebMvcTest(FilmeController.class)
-//@ContextConfiguration(classes=FilmeConsultaApplication.class)
 public class FilmeConsultaApplicationTests {
 	
 	@Autowired
