@@ -42,7 +42,7 @@ pipeline {
                   emailext (
                     mimeType: "text/html",
                     subject: "Jenkins aguardando aprovação do Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                    body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]'</p> <br><br> <a href='${env.BUILD_URL}'> ${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>",
+                    body: "Job aguardando aprovação: <p>${env.JOB_NAME} [${env.BUILD_NUMBER}]</p> <br><br> <a href='${env.BUILD_URL}'> ${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>",
                     to: "elton.margonato@terra.com.br" )
                   }
          }      
