@@ -25,15 +25,7 @@ pipeline {
                     }
            }
       
-          stage('Solicita aprovação para fazer deply no Artifactory') {
-            steps {
-                timeout(time:5, unit:'MINUTES') {
-                    input message:'Fazer deploy no Artifactory??', submitter: 'admin'
-                }
-            }
-        }
-
-         stage ('Fazer deploy do Jar no Artifactory') {
+         stage ('Instala novo JAR no Artifactory') {
               steps {
                        rtUpload (serverId: "AWS_Artifactory_ECMO", 
                                  spec: """{ "files": [ {
@@ -44,5 +36,20 @@ pipeline {
                        rtPublishBuildInfo(serverId: 'AWS_Artifactory_ECMO')
                     }
            }
+      
+         stage ('Solicita aprovação para atualizar container com novo build') {
+            steps {
+                      timeout(time:2, unit:'MINUTES') {
+                           input message:'Atualizar container com novo build?', submitter: 'admin'
+                      }
+                  }
+         }
+      
+        stage ('Dispara job para atualizar Container') {		
+            steps {
+                      build 'roadrunner_filmeconsulta_configManager'	
+                  }
+        }  
+      
    }
 }
