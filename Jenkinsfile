@@ -56,7 +56,7 @@ pipeline {
                     ansiblePlaybook(
                           credentialsId: '7240a250-ec80-4f7b-9d50-64d06bf8afb7',
                           inventory: '/etc/ansible/hosts',
-                          playbook: '/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml'
+                          playbook: '/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml',
                           extraVars: [
                                        jenkins_workspace: $WORKSPACE
                                      ])
