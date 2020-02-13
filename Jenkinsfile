@@ -52,12 +52,15 @@ pipeline {
          }
       
          stage('Atualiza Container') {
-            steps {
-                    ansiblePlaybook(
-                          credentialsId: '7240a250-ec80-4f7b-9d50-64d06bf8afb7',
-                          inventory: '/etc/ansible/hosts',
-                          playbook: '/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml')
-                  }
+           steps {
+                      ansiblePlaybook('/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml') {
+                          inventoryPath('/etc/ansible/hosts')
+                          credentialsId('7240a250-ec80-4f7b-9d50-64d06bf8afb7')
+                          extraVars {
+                              extraVar("jenkins_workspace", $WORKSPACE, true)
+                          }
+                      }
+                 }
         }
       
    }
