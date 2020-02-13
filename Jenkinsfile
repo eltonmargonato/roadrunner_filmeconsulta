@@ -58,7 +58,7 @@ pipeline {
                           inventory: '/etc/ansible/hosts',
                           playbook: '/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml',
                           extraVars: [
-                                       jenkins_workspace: $WORKSPACE
+                                       jenkins_workspace: ${env.WORKSPACE}
                                      ])
                   }      
         }
