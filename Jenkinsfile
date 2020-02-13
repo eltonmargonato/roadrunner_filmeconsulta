@@ -43,7 +43,7 @@ pipeline {
          }      
       
       
-         stage ('Solicita aprovação para atualizar container com novo build') {
+         stage ('Aguarda aprovação para atualizar container') {
             steps {
                       timeout(time:2, unit:'MINUTES') {
                            input message:'Atualizar container com novo build?', submitter: 'admin'
@@ -51,11 +51,14 @@ pipeline {
                   }
          }
       
-        stage ('Dispara job para atualizar Container') {		
+         stage('Atualiza Container') {
             steps {
-                      build 'roadrunner_filmeconsulta_configManager'	
+                    ansiblePlaybook(
+                          credentialsId: 'ubuntu',
+                          inventory: '/etc/ansible/hosts',
+                          playbook: '/home/ubuntu/ansible/playbook_roadrunner_filmeconsulta.yml')
                   }
-        }  
+        }
       
    }
 }
