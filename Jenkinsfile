@@ -40,11 +40,9 @@ pipeline {
          stage ('Envia email solicitando aprovação') {
             steps {
                   emailext (
-                           subject: "Jenkins aguardando aprovação do Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                           body: "<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'</p>
-                                  <br><br>
-                                  <a href='${env.BUILD_URL}'> ${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>",
-                            to: "elton.margonato@terra.com.br" )
+                    subject: "Jenkins aguardando aprovação do Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                    body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]'</p> <br><br> <a href='${env.BUILD_URL}'> ${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>",
+                    to: "elton.margonato@terra.com.br" )
                   }
          }      
       
