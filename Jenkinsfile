@@ -23,7 +23,7 @@ pipeline {
          stage ('Gera imagem Docker') {
             steps{
                       script {
-                             docker.build("FilmeConsulta:${env.BUILD_ID}")
+                             docker.build("filmeconsulta:${env.BUILD_ID}")
                       }
                  }
            }
