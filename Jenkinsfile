@@ -35,14 +35,14 @@ pipeline {
          stage ('Gera imagem Docker') {
             steps{
                       script {
-                             docker.build("filmeconsulta:${env.BUILD_ID}")
+                             docker.build("filmeconsulta:filmeconsulta:latest")
                       }
                  }
            }
       
          stage ('Exporta imagem Docker') {
             steps {
-                      sh "docker save -o filmeconsulta.tar filmeconsulta:${env.BUILD_ID}"
+                      sh "docker save -o filmeconsulta.tar filmeconsulta:latest"
                   }                
            }       
       
