@@ -20,6 +20,18 @@ pipeline {
                     }
            }
       
+         stage ('Instala novo JAR no Artifactory') {
+              steps {
+                       rtUpload (serverId: "AWS_Artifactory_ECMO", 
+                                 spec: """{ "files": [ {
+                                                       "pattern": "target/(*).jar",
+                                                       "target": "libs-release/target/{1}.jar"
+                                                       }  ] }"""
+                                )
+                       rtPublishBuildInfo(serverId: 'AWS_Artifactory_ECMO')
+                    }
+           }      
+      
          stage ('Gera imagem Docker') {
             steps{
                       script {
