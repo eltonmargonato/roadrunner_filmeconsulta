@@ -32,6 +32,26 @@ pipeline {
                     }
            }      
       
+         stage ('Envia email solicitando aprovação para atualizar container') {
+            steps {
+                  emailext (
+                    mimeType: "text/html",
+                    subject: "Jenkins aguardando aprovação do Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                    body: "Job aguardando aprovação para publicar container (timeout=1 hora): <p>${env.JOB_NAME} [${env.BUILD_NUMBER}]</p> <br><br> <a href='${env.BUILD_URL}'> ${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>",
+                    to: "elton.margonato@terra.com.br" )
+                  }
+         }      
+      
+      
+         stage ('Aguarda aprovação para atualizar container') {
+            steps {
+                      timeout(time:1, unit:'HOURS') {
+                           input message:'Atualizar container com novo build?', submitter: 'admin'
+                      }
+                  }
+         }      
+      
+      
          stage ('Gera imagem Docker') {
             steps{
                       script {
