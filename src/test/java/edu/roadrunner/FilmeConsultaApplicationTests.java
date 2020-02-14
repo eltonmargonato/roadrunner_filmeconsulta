@@ -33,4 +33,9 @@ public class FilmeConsultaApplicationTests {
 	     this.mockMvc.perform(get("/filme/busca/genero/1")).andDo(print()).andExpect(status().isOk());	
         }
 	
+	@Test
+        public void getFilmesMaisVistos() throws Exception {
+	     this.mockMvc.perform(get("/filme/busca/maisvistoscategoria")).andDo(print()).andExpect(status().isOk());	
+        }	
+	
 }
