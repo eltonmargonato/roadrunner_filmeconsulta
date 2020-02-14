@@ -35,7 +35,7 @@ pipeline {
          stage ('Gera imagem Docker') {
             steps{
                       script {
-                             docker.build("filmeconsulta:filmeconsulta:latest")
+                             docker.build("filmeconsulta:latest")
                       }
                  }
            }
