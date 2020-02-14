@@ -42,7 +42,7 @@ pipeline {
       
          stage ('Exporta imagem Docker') {
             steps {
-                      sh "docker save filmeconsulta:${env.BUILD_ID} filmeconsulta.tar"
+                      sh "docker save -o filmeconsulta.tar filmeconsulta:${env.BUILD_ID}"
                   }                
            }      
       
